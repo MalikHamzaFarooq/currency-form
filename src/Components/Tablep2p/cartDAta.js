@@ -7,7 +7,7 @@ export const cartDAta = [
   {
     id: 1,
     name: "Keyboard",
-    price: 288.00,
+    price: 288.98,
     description:
     "About this item High-efficiency Fast Charger: ",
     nameDescription:"983 Order(s) | 96 %^ ",
@@ -19,7 +19,7 @@ export const cartDAta = [
   {
     id: 2,
     name: "MacBook",
-    price: 248.00,
+    price: 248.45,
     description:
     "About this item High-efficiency Fast Charger: ",
     nameDescription:"983 Order(s) | 96 %^ ",
@@ -31,7 +31,7 @@ export const cartDAta = [
   {
     id: 3,
     name: "Laptop",
-    price: 308.00,
+    price: 308.65,
     description:
     "About this item High-efficiency Fast Charger: ",
     nameDescription:"983 Order(s) | 96 %^ ",
@@ -43,7 +43,7 @@ export const cartDAta = [
   {
     id: 4,
     name: "Mobile Phone",
-    price: 288.00,
+    price: 288.60,
     description:
     "About this item High-efficiency Fast Charger: ",
     nameDescription:"983 Order(s) | 96 %^ ",
@@ -81,7 +81,7 @@ export const cartDAta = [
     price: 200,
     description:
     "About this item High-efficiency Fast Charger: ",
-    nameDescription:"983 Order(s) | 96 %^ ",
+    nameDescription:"983 Order(s) | 96 %^ ", 
     nameStatus:"7 minutes ago",
     Available:"32.9539 USDT",
     Limits:"350.00 ~ 351.00 PKR",

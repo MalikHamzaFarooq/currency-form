@@ -1,0 +1,19 @@
+.buy-button {
+    background-color: #F0B90B;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .buy-button:hover {
+    background-color: #D1A009;
+  }
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    padding: 6.5px 8px !important;
+  }

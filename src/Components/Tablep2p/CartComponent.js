@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import './Tablep2p.css'
 import { useContext } from "react";
 import {
   Box,
@@ -14,6 +15,7 @@ import {
   Container,
   Grid,
   IconButton,
+  Menu,
   TextField,
   Typography,
 } from "@mui/material";
@@ -29,6 +31,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -74,7 +77,42 @@ export default function CartComponent() {
   const [limitCurrancy, setLimitCurrancy] = React.useState(1);
   const [price, setPrice] = React.useState(1);
   const [refresh, setRefresh] = React.useState(1);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [selectedFilter, setSelectedFilter] = React.useState([]);
+  const [appliedFilter, setAppliedFilter] = React.useState([]);
 
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleFilterCheckBoxChange = (event) => {
+    const { value } = event.target;
+    const currentIndex = filter.indexOf(value);
+    const newFilter = [...filter];
+
+    if (currentIndex === -1) {
+      newFilter.push(value);
+    } else {
+      newFilter.splice(currentIndex, 1);
+    }
+
+    setFilter(newFilter);
+  };
+
+  const handleConfirm = () => {
+    setSelectedFilter([...filter]);
+    setAppliedFilter([...filter]);
+    handleCloseMenu();
+  };
+
+  const handleCancel = () => {
+    setFilter([]);
+    handleCloseMenu();
+  };
 
   const handleLimitCurrancy = (event) => {
     setLimitCurrancy(event.target.value);
@@ -86,7 +124,6 @@ export default function CartComponent() {
     setPrice(event.target.value);
   };
 
-
   const handleRefresh = (event) => {
     setRefresh(event.target.value);
   };
@@ -96,12 +133,11 @@ export default function CartComponent() {
   //Mullti selection check
   const [paymentName, setPaymentName] = React.useState([]);
   const [filter, setFilter] = React.useState([]);
-  const [searchQuery, setSearchQuery] = React.useState('');
-  
+  const [searchQuery, setSearchQuery] = React.useState("");
+
   const handleSearchInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
 
   const handleCheckBoxChange = (event) => {
     const {
@@ -113,15 +149,15 @@ export default function CartComponent() {
     );
   };
 
-  const handleFilterCheckBoxChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setFilter(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
+  // const handleFilterCheckBoxChange = (event) => {
+  //   const {
+  //     target: { value },
+  //   } = event;
+  //   setFilter(
+  //     // On autofill we get a stringified value.
+  //     typeof value === "string" ? value.split(",") : value
+  //   );
+  // };
 
   // Buy sell button
 
@@ -207,7 +243,6 @@ export default function CartComponent() {
             </StyledTableCell>
             <StyledTableCell>
               <FormControl>
-       
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -256,7 +291,6 @@ export default function CartComponent() {
                   placeholder="Enter Amount"
                 ></input>
 
-            
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
@@ -302,7 +336,8 @@ export default function CartComponent() {
                   input={<OutlinedInput />}
                   sx={{
                     "& fieldset": { border: "none" },
-                    backgroundColor: "rgb(243, 245, 247)",height:'40px'
+                    backgroundColor: "rgb(243, 245, 247)",
+                    height: "40px",
                   }}
                   renderValue={(selected) => {
                     if (selected.length === 0) {
@@ -318,30 +353,43 @@ export default function CartComponent() {
                   MenuProps={MenuProps}
                   inputProps={{ "aria-label": "Without label" }}
                 >
-                  <Box sx={{marginRight:'6%'}} >
+                  <Box
+                    sx={{
+                      marginRight: "6%",
+                      width: "92%",
 
+                      borderRadius: "8px",
+                      marginLeft: "1%",
+                    }}
+                  >
                     <TextField
-        fullWidth
-        variant="outlined"
-        placeholder="Search Payment Methods"
-        value={searchQuery}
-        onChange={handleSearchInputChange}
-        sx={{padding:'2% 4% 2% 2%', "& fieldset": { borderBlock:'2px solid #f7a600' }}}
-      />
+                      fullWidth
+                      variant="outlined"
+                      placeholder="Search Payment Methods"
+                      value={searchQuery}
+                      onChange={handleSearchInputChange}
+                      sx={{
+                        padding: "6.5px 6px",
+                        "& fieldset": { borderBlock: "2px solid #f7a600" },
+                      }}
+                    />
                   </Box>
 
-{[
-          "Bank Transfer",
-          "Sada Pay",
-          "EAisy Paisa",
-          "Jaz cash",
-          "Other",
-        ].filter(name => name.toLowerCase().includes(searchQuery.toLowerCase())).map((name) => (
-          <MenuItem key={name} value={name}>
-            {name}
-          </MenuItem>
-
-                  ))}
+                  {[
+                    "Bank Transfer",
+                    "Sada Pay",
+                    "EAisy Paisa",
+                    "Jaz cash",
+                    "Other",
+                  ]
+                    .filter((name) =>
+                      name.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    .map((name) => (
+                      <MenuItem key={name} value={name}>
+                        {name}
+                      </MenuItem>
+                    ))}
                   <Box
                     sx={{
                       display: "flex",
@@ -420,77 +468,85 @@ export default function CartComponent() {
                   </Select>
                 </FormControl>
                 <FormControl>
-                  <Select
-                    labelId="demo-multiple-checkbox-label"
-                    // id="demo-multiple-checkbox"
-                    multiple
-                    value={filter}
-                    onChange={handleFilterCheckBoxChange}
-                    input={<OutlinedInput label="Tag" />}
-                    renderValue={(selected) => selected.join(", ")}
-                    MenuProps={MenuProps}
-                    sx={{
-                      width: "100px",
-                      backgroundColor: "rgb(243, 245, 247)",
-                      height: "40px",
-                      "& fieldset": { border: "none" },
-                    }}
-                  >
-                    {[
-                      "Show only Verified Advertisers",
-                      "Show only Eligible Ads",
-                    ].map((name) => (
-                      <MenuItem key={name} value={name}>
-                        <Checkbox checked={filter.indexOf(name) > -1} />
-
-                        <ListItemText primary={name} />
-                      </MenuItem>
-                    ))}
-
-                    <Box
+                  <div>
+                    <Button
+                      variant="text"
                       sx={{
-                        display: "flex",
-                        gap: "10px",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        disabled={checked}
-                        onClick={() => setChecked(!checked)}
-                        style={{
-                          backgroundColor: "#f7a600",
-                          color: "#121214",
-                          width: "100px",
-                          height: "32px",
-                          padding: "2% 4%",
-                          boxShadow: "none",
-                          fontSize: "12px",
-                        }}
-                      >
-                        Confirm
-                      </Button>
-                      <Button
-                        variant="contained"
-                        disabled={!checked}
-                        onClick={() => setChecked(!checked)}
-                        style={{
+                        color: "black",
+                        textTransform: "capitalize",
+                        "&:hover": {
                           backgroundColor: "white",
-                          color: "#121214",
-                          width: "100px",
-                          height: "32px",
-                          padding: "2% 4%",
-                          boxShadow: "none",
-                          border: "2px solid rgb(243, 245, 247)",
-                          fontSize: "12px",
+                        },
+                      }}
+                      onClick={handleOpenMenu}
+                      endIcon={<FilterAltIcon />}
+                    >
+                      Filter
+                    </Button>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleCloseMenu}
+                    >
+                      {[
+                        "Show only Verified Advertisers",
+                        "Show only Eligible Ads",
+                      ].map((name) => (
+                        <MenuItem key={name}>
+                          <Checkbox
+                            checked={filter.indexOf(name) > -1}
+                            onChange={handleFilterCheckBoxChange}
+                            value={name}
+                          />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: "10px",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginTop: "10px",
                         }}
                       >
-                        Cancel
-                      </Button>
-                    </Box>
-                  </Select>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          // disabled={!filter.length}
+                          onClick={handleConfirm}
+                          style={{
+                            backgroundColor: "#f7a600",
+                            color: "#121214",
+                            width: "100px",
+                            height: "32px",
+                            padding: "2% 4%",
+                            boxShadow: "none",
+                            fontSize: "12px",
+                          }}
+                        >
+                          Confirm
+                        </Button>
+                        <Button
+                          variant="contained"
+                          // disabled={!checked}
+                          onClick={handleCancel}
+                          style={{
+                            backgroundColor: "white",
+                            color: "#121214",
+                            width: "100px",
+                            height: "32px",
+                            padding: "2% 4%",
+                            boxShadow: "none",
+                            border: "2px solid rgb(243, 245, 247)",
+                            fontSize: "12px",
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                      </Box>
+                    </Menu>
+                  </div>
                 </FormControl>
               </Box>
             </StyledTableCell>
@@ -528,6 +584,7 @@ export default function CartComponent() {
           </TableRow>
         </TableHead>
         <TableBody>
+          
           {cartDAta.map((item) => (
             <StyledTableRow key={item.id}>
               <StyledTableCell>
@@ -577,6 +634,7 @@ export default function CartComponent() {
               <StyledTableCell sx={{ fontSize: "22px", textAlign: "center" }}>
                 <Typography fontWeight="bold" sx={{ fontSize: "22px" }}>
                   {item.price}
+                  {limitCurrancy}
                 </Typography>
               </StyledTableCell>
               <StyledTableCell>
@@ -644,6 +702,9 @@ export default function CartComponent() {
                     width: "100px",
                     height: "40px",
                     padding: "2% 0%",
+                    "&:hover": {
+                      backgroundColor: checked ? "#20b26c" : "#ef454a",
+                    },
                   }}
                 >
                   <b>
