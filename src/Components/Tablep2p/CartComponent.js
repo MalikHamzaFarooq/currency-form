@@ -8,13 +8,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import './Tablep2p.css'
-import { useContext } from "react";
+// import { useContext } from "react";
 import {
   Box,
   Button,
-  Container,
-  Grid,
-  IconButton,
+  // Container,
+  // Grid,
+  // IconButton,
   Menu,
   TextField,
   Typography,
@@ -32,7 +32,36 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import Badge from '@mui/material/Badge';
 
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: 'ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}));
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -283,7 +312,7 @@ export default function CartComponent() {
                   type="text"
                   style={{
                     width: " 120px",
-                    height: "31px",
+                    height: "40px",
                     padding: " 2% 4%",
                     backgroundColor: "rgb(243, 245, 247)",
                     border: "none",
@@ -357,7 +386,6 @@ export default function CartComponent() {
                     sx={{
                       marginRight: "6%",
                       width: "92%",
-
                       borderRadius: "8px",
                       marginLeft: "1%",
                     }}
@@ -386,11 +414,11 @@ export default function CartComponent() {
                       name.toLowerCase().includes(searchQuery.toLowerCase())
                     )
                     .map((name) => (
-                      <MenuItem key={name} value={name}>
+                      <MenuItem key={name} value={name} sx={{}}>
                         {name}
                       </MenuItem>
                     ))}
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       gap: "10px",
@@ -432,7 +460,7 @@ export default function CartComponent() {
                     >
                       Reset
                     </Button>
-                  </Box>
+                  </Box> */}
                 </Select>
               </FormControl>
             </StyledTableCell>
@@ -597,10 +625,16 @@ export default function CartComponent() {
                 >
                   <ListItem>
                     <ListItemAvatar>
+                    <StyledBadge
+  overlap="circular"
+  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+  variant="dot"
+>
                       <Avatar sx={{ ...gradientAvatar }}>
                         {" "}
                         {item.name.charAt(0).toUpperCase()}
                       </Avatar>
+                      </StyledBadge>
                     </ListItemAvatar>
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       {

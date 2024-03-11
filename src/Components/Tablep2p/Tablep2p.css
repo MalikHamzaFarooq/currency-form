@@ -17,3 +17,125 @@
   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
     padding: 6.5px 8px !important;
   }
+
+  .ant-layout-header {
+    width: 100%;
+    height: auto;
+
+    padding: 24px 0px 6px 0px;
+  
+    .label {
+      height: 56px;
+    }
+  
+    .label .text-wrapper {
+      color: #112235;
+      font-family: 'Sansita-Regular', Helvetica;
+      font-size: 20px;
+      font-weight: 400;
+      /* left: 0; */
+      /* letter-spacing: 0; */
+      line-height: 56px;
+      /* position: fixed; */
+      /* top: 0; */
+      white-space: nowrap;
+    }
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  .header {
+    
+    top: 0;
+    width: 100%;
+
+
+    z-index: 1;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin-top: 4%;
+    z-index: 2;
+  }
+  
+  .menu a {
+    display: block;
+
+    padding: 7px 15px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.2s all ease-in-out;
+    color: black;
+  }
+  
+  .menu:hover a {
+    opacity: 0.4;
+  }
+  
+  .menu a:hover {
+    opacity: 1;
+  
+  }
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  #menu-toggle {
+    display: none;
+  }
+  
+  #menu-toggle:checked ~ .menu {
+    transform: scale(1, 1);
+  }
+  
+  @media only screen and (max-width: 950px) {
+    .menu {
+      flex-direction: column;
+ 
+      align-items: start;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      z-index: 99;
+      transform: scale(1, 0);
+      transform-origin: top;
+      transition: transform 0.3s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+  
+    .menu a {
+      margin-left: 12px;
+    }
+  
+    .menu li {
+      margin-bottom: 10px;
+    }
+  
+    .menu-icon {
+      display: block;
+      color: grey;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 8%;
+    }
+  }
+  

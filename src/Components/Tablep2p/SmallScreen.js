@@ -1,21 +1,21 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import "./Tablep2p.css";
-import { useContext } from "react";
+// import { useContext } from "react";
 import {
   Box,
   Button,
-  Container,
+  // Container,
   Divider,
   Grid,
-  IconButton,
+  // IconButton,
   Menu,
   TextField,
   Typography,
@@ -33,6 +33,8 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import Badge from '@mui/material/Badge';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -44,6 +46,35 @@ const MenuProps = {
     },
   },
 };
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'relative',
+      top: 0,
+      left: 0,
+      
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: 'ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}));
 
 // const names = ;
 
@@ -70,9 +101,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const gradientColors = ["#ff9a42", "#ff5f59"];
-const gradientAvatar = {
-  background: "linear-gradient(90deg, #f90 0%, #ff6a59 100%)",
-};
+
 
 export default function SmallScreen() {
   const [limitCurrancy, setLimitCurrancy] = React.useState(1);
@@ -183,11 +212,11 @@ export default function SmallScreen() {
   // const { cartDAta, setCArtData, setNotification } = useContext(AppContext);
   // const state = useContext(AppContext);
 
-  const handleDelete = (itemId) => {
+  // const handleDelete = (itemId) => {
     // const newCart = cartDAta.filter((item) => item._id !== itemId);
     // setCArtData(newCart);
     // setNotification((prev) => prev - 1);
-  };
+  // };
 
   // const totalSum = cartDAta.reduce(
   //   (acc, item) => acc + item.quantity * item.price,
@@ -197,15 +226,12 @@ export default function SmallScreen() {
   // console.log("Total Price:", totalSum);
   console.log("data ..... ", cartDAta);
   return (
-    <Container>
+    <Box sx={{margin:'0 2%'}}>
      
 
-   
-      <Box sx={{mt:'4% 0%'}}>
-        <Box>
-          <Box>
-            <Box>
-              <Box
+     <header class="header">
+  <nav>
+  <Box
                 sx={{
                   display: "flex",
                   gap: "10px",
@@ -245,6 +271,330 @@ export default function SmallScreen() {
                   <b>Sell</b>
                 </Button>
               </Box>
+    <input type="checkbox" id="menu-toggle"></input>
+    <label for="menu-toggle" class="menu-icon">View more ></label>
+    <ul class="menu">
+      <li><a href="#">
+      <StyledTableCell>
+              <FormControl>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={price}
+                  inputProps={{ "aria-label": "Without label" }}
+                  sx={{
+                    width: "120px",
+                    height: "40px",
+                    padding: "2% 4%",
+                    boxShadow: "none",
+                    backgroundColor: "rgb(243, 245, 247)",
+                    fontSize: "12px",
+                    "& fieldset": { border: "none" },
+                  }}
+                  // label="Age"
+                  onChange={handlePriceChange}
+                >
+                  <MenuItem value={1}>
+                    <EditIcon /> USDT
+                  </MenuItem>
+                  <MenuItem value={2}>
+                    <EditIcon /> BTC{" "}
+                  </MenuItem>
+                  <MenuItem value={3}>
+                    <EditIcon /> ETH{" "}
+                  </MenuItem>
+                  <MenuItem value={4}>
+                    <EditIcon /> USDC
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </StyledTableCell>
+        </a></li>
+      <li><a href="#">
+      <StyledTableCell>
+              <FormControl
+                sx={{ display: "flex", flexDirection: "row", gap: 1 }}
+              >
+                <input
+                  type="text"
+                  style={{
+                    width: " 120px",
+                    height: "40px",
+                    padding: " 2% 4%",
+                    backgroundColor: "rgb(243, 245, 247)",
+                    border: "none",
+                  }}
+                  placeholder="Enter Amount"
+                ></input>
+
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={limitCurrancy}
+                  inputProps={{ "aria-label": "Without label" }}
+                  sx={{
+                    width: "120px",
+                    height: "40px",
+                    padding: "2% 4%",
+                    boxShadow: "none",
+                    backgroundColor: "rgb(243, 245, 247)",
+                    border: "none",
+                    fontSize: "12px",
+                    "& fieldset": { border: "none" },
+                  }}
+                  // label="Age"
+                  onChange={handleLimitCurrancy}
+                >
+                  <MenuItem value={1}>
+                    <EditIcon />
+                    PKR
+                  </MenuItem>
+                  <MenuItem value={2}>
+                    <EditIcon /> BTC{" "}
+                  </MenuItem>
+                  <MenuItem value={3}>
+                    <EditIcon /> ETH{" "}
+                  </MenuItem>
+                  <MenuItem value={4}>
+                    <EditIcon /> USDC
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </StyledTableCell>
+        </a></li>
+      <li><a href="#"><StyledTableCell align="left">
+              <FormControl sx={{ m: 1, width: 250 }} >
+                {/* <InputLabel id="demo-multiple-checkbox-label">All Payment Methods</InputLabel> */}
+                <Select
+                  multiple
+                  displayEmpty
+                  value={paymentName}
+                  onChange={handleCheckBoxChange}
+                  input={<OutlinedInput />}
+                  sx={{
+                    "& fieldset": { border: "none" },
+                    backgroundColor: "rgb(243, 245, 247)",
+                    height: "40px",
+                  }}
+                  renderValue={(selected) => {
+                    if (selected.length === 0) {
+                      return (
+                        <em style={{ color: "grey", fontSize: "14px" }}>
+                          All Payment Method
+                        </em>
+                      );
+                    }
+
+                    return selected.join(", ");
+                  }}
+                  MenuProps={MenuProps}
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <Box
+                    sx={{
+                      marginRight: "6%",
+                      width: "92%",
+
+                      borderRadius: "8px",
+                      marginLeft: "1%",
+                    }}
+                  >
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      placeholder="Search Payment Methods"
+                      value={searchQuery}
+                      onChange={handleSearchInputChange}
+                      sx={{
+                        padding: "6.5px 6px",
+                        "& fieldset": { borderBlock: "2px solid #f7a600" },
+                      }}
+                    />
+                  </Box>
+
+                  {[
+                    "Bank Transfer",
+                    "Sada Pay",
+                    "EAisy Paisa",
+                    "Jaz cash",
+                    "Other",
+                  ]
+                    .filter((name) =>
+                      name.toLowerCase().includes(searchQuery.toLowerCase())
+                    )
+                    .map((name) => (
+                      <MenuItem key={name} value={name}>
+                        {name}
+                      </MenuItem>
+                    ))}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: "10px",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      disabled={checked}
+                      onClick={() => setChecked(!checked)}
+                      style={{
+                        backgroundColor: "#f7a600",
+                        color: "#121214",
+                        width: "100px",
+                        height: "32px",
+                        padding: "2% 4%",
+                        boxShadow: "none",
+                        fontSize: "12px",
+                      }}
+                    >
+                      Confirm
+                    </Button>
+                    <Button
+                      variant="contained"
+                      disabled={!checked}
+                      onClick={() => setChecked(!checked)}
+                      style={{
+                        backgroundColor: "white",
+                        color: "#121214",
+                        width: "100px",
+                        height: "32px",
+                        padding: "2% 4%",
+                        boxShadow: "none",
+                        border: "2px solid rgb(243, 245, 247)",
+                        fontSize: "12px",
+                      }}
+                    >
+                      Reset
+                    </Button>
+                  </Box>
+                </Select>
+              </FormControl>
+            </StyledTableCell></a></li>
+      <li><a href="#"> <StyledTableCell>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "10px",
+                }}
+              >
+                <FormControl>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={refresh}
+                    inputProps={{ "aria-label": "Without label" }}
+                    sx={{
+                      width: "140px",
+                      height: "40px",
+                      padding: "2% 4%",
+                      boxShadow: "none",
+                      backgroundColor: "rgb(243, 245, 247)",
+                      fontSize: "12px",
+                      "& fieldset": { border: "none" },
+                    }}
+                    // label="Age"
+                    onChange={handleRefresh}
+                  >
+                    <MenuItem value={1}>5s to referesh</MenuItem>
+                    <MenuItem value={2}>10s to referesh</MenuItem>
+                    <MenuItem value={3}>15s to referesh</MenuItem>
+                    <MenuItem value={4}>20s to referesh</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl>
+                  <div>
+                    <Button
+                      variant="text"
+                      sx={{
+                        color: "black",
+                        textTransform: "capitalize",
+                        "&:hover": {
+                          backgroundColor: "white",
+                        },
+                      }}
+                      onClick={handleOpenMenu}
+                      endIcon={<FilterAltIcon />}
+                    >
+                      Filter
+                    </Button>
+                    <Menu
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleCloseMenu}
+                    >
+                      {[
+                        "Show only Verified Advertisers",
+                        "Show only Eligible Ads",
+                      ].map((name) => (
+                        <MenuItem key={name}>
+                          <Checkbox
+                            checked={filter.indexOf(name) > -1}
+                            onChange={handleFilterCheckBoxChange}
+                            value={name}
+                          />
+                          <ListItemText primary={name} />
+                        </MenuItem>
+                      ))}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: "10px",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginTop: "10px",
+                        }}
+                      >
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          // disabled={!filter.length}
+                          onClick={handleConfirm}
+                          style={{
+                            backgroundColor: "#f7a600",
+                            color: "#121214",
+                            width: "100px",
+                            height: "32px",
+                            padding: "2% 4%",
+                            boxShadow: "none",
+                            fontSize: "12px",
+                          }}
+                        >
+                          Confirm
+                        </Button>
+                        <Button
+                          variant="contained"
+                          // disabled={!checked}
+                          onClick={handleCancel}
+                          style={{
+                            backgroundColor: "white",
+                            color: "#121214",
+                            width: "100px",
+                            height: "32px",
+                            padding: "2% 4%",
+                            boxShadow: "none",
+                            border: "2px solid rgb(243, 245, 247)",
+                            fontSize: "12px",
+                          }}
+                        >
+                          Cancel
+                        </Button>
+                      </Box>
+                    </Menu>
+                  </div>
+                </FormControl>
+              </Box>
+            </StyledTableCell></a></li>
+    </ul>
+  </nav>
+</header>
+      <Box sx={{mt:'4% 0%'}}>
+        <Box>
+          <Box>
+            <Box>
+              
             </Box>
           
           </Box>
@@ -271,13 +621,21 @@ export default function SmallScreen() {
                       }}
                     >
                       <ListItem>
-                        <ListItemAvatar>
+                        <ListItemAvatar sx={{    minWidth: '27px'}}>
+                        <StyledBadge
+                         overlap="circular"
+                           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                           variant="dot"
+>
                           <Avatar sx={{width:'20px',height:'20px',backgroundColor: "#f7a600",
                         color: "#121214", }}>
                           
                           <span style={{fontSize:'10px'}}>    {item.name.charAt(0).toUpperCase()}  </span> 
                           </Avatar>
+                          </StyledBadge>
+
                         </ListItemAvatar>
+
                         <Box sx={{ display: "flex", flexDirection: "column" }}>
                           {
                             <Typography
@@ -288,15 +646,7 @@ export default function SmallScreen() {
                             </Typography>
                           }
 
-                          {
-                            <Typography
-                              variant="body2"
-                              fontWeight="regular"
-                              sx={{ color: "#adb1b8", fontSize: "12px" }}
-                            >
-                              {item.nameDescription}
-                            </Typography>
-                          }
+                         
                           {
                             <Typography
                               variant="body2"
@@ -375,19 +725,27 @@ export default function SmallScreen() {
                 </Grid>
 
 
-                <Grid item xs={6} sm={6}sx={{display: "flex",alignItems: "end",justifyContent: "end",
+                <Grid item xs={6} sm={6}sx={{display: "flex",flexDirection:'column',alignItems: "end",justifyContent: "space-around",
                   }}
                 >
-            
+             {
+                            <Typography
+                              variant="body2"
+                              fontWeight="regular"
+                              sx={{ color: "#adb1b8", fontSize: "12px" }}
+                            >
+                              {item.nameDescription}
+                            </Typography>
+                          }
                     <Button
                       variant="contained"
                       // color={checked ? 'secondary' : 'primary'}
                       sx={{
                         backgroundColor: checked ? "#20b26c" : "#ef454a",
-                        width: "90px",
-                        height: "40px",
+                        width: "60px",
+                        height: "25px",
                         padding: "2% 0%",
-                        fontSize:'12px',
+                        fontSize:'10px',
                         "&:hover": {
                           backgroundColor: checked ? "#20b26c" : "#ef454a",
                         },
@@ -431,6 +789,34 @@ export default function SmallScreen() {
         </Box>
         
 
-      </Container>
+      </Box>
   );
 }
+
+
+
+// <Grid container>
+// {[
+//   "Bank Transfer",
+//   "Sada Pay",
+//   "EAisy Paisa",
+//   "Jaz cash",
+//   "Other",
+// ]
+
+//   .filter((name) =>
+//     name.toLowerCase().includes(searchQuery.toLowerCase())
+//   )
+//   .map((name) => (
+//     <Grid item  key={name} value={name} sx={{display:'flex'}}>
+
+//     <MenuItem sx={{width:'130px',"&:hover": {
+//     color:'#F0B90B',
+//     backgroundColor:'#rgba(247,166,0,.12)',
+ 
+//   },}}>
+//       {name}
+//     </MenuItem>
+//     </Grid>
+//   ))}
+//    </Grid>
