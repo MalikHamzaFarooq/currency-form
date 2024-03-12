@@ -33,6 +33,7 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Badge from '@mui/material/Badge';
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -290,16 +291,16 @@ export default function CartComponent() {
                   onChange={handlePriceChange}
                 >
                   <MenuItem value={1}>
-                    <EditIcon /> USDT
+                  <img width="20" height="20"  src="https://img.icons8.com/color/48/tether--v2.png" alt="tether--v2"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>USDT</span> 
                   </MenuItem>
                   <MenuItem value={2}>
-                    <EditIcon /> BTC{" "}
+                  <img width="20" height="20" src="https://img.icons8.com/color/48/bitcoin--v1.png" alt="bitcoin--v1"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>BTC</span> 
                   </MenuItem>
                   <MenuItem value={3}>
-                    <EditIcon /> ETH{" "}
+                  <img width="20" height="20" src="https://img.icons8.com/external-black-fill-lafs/20/000000/external-Ethereum-cryptocurrency-black-fill-lafs.png" alt="external-Ethereum-cryptocurrency-black-fill-lafs"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>ETH</span> 
                   </MenuItem>
                   <MenuItem value={4}>
-                    <EditIcon /> USDC
+                  <img width="20" height="20" src="https://img.icons8.com/external-black-fill-lafs/20/000000/external-USDC-cryptocurrency-black-fill-lafs.png" alt="external-USDC-cryptocurrency-black-fill-lafs"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>USDC</span> 
                   </MenuItem>
                 </Select>
               </FormControl>
@@ -328,7 +329,7 @@ export default function CartComponent() {
                   sx={{
                     width: "120px",
                     height: "40px",
-                    padding: "2% 4%",
+                   
                     boxShadow: "none",
                     backgroundColor: "rgb(243, 245, 247)",
                     border: "none",
@@ -338,18 +339,17 @@ export default function CartComponent() {
                   // label="Age"
                   onChange={handleLimitCurrancy}
                 >
-                  <MenuItem value={1}>
-                    <EditIcon />
-                    PKR
+                    <MenuItem value={1}>
+                  <img width="20" height="20" src="https://img.icons8.com/color/48/tether--v2.png" alt="tether--v2"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>USDT</span> 
                   </MenuItem>
                   <MenuItem value={2}>
-                    <EditIcon /> BTC{" "}
+                  <img width="20" height="20" src="https://img.icons8.com/color/48/bitcoin--v1.png" alt="bitcoin--v1"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>BTC</span> 
                   </MenuItem>
                   <MenuItem value={3}>
-                    <EditIcon /> ETH{" "}
+                  <img width="20" height="20" src="https://img.icons8.com/external-black-fill-lafs/20/000000/external-Ethereum-cryptocurrency-black-fill-lafs.png" alt="external-Ethereum-cryptocurrency-black-fill-lafs"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>ETH</span> 
                   </MenuItem>
                   <MenuItem value={4}>
-                    <EditIcon /> USDC
+                  <img width="20" height="20" src="https://img.icons8.com/external-black-fill-lafs/20/000000/external-USDC-cryptocurrency-black-fill-lafs.png" alt="external-USDC-cryptocurrency-black-fill-lafs"/> <span style={{fontSize:'12px',fontWeight:600,marginLeft:'8%'}}>USDC</span> 
                   </MenuItem>
                 </Select>
               </FormControl>
@@ -626,9 +626,9 @@ export default function CartComponent() {
                   <ListItem>
                     <ListItemAvatar>
                     <StyledBadge
-  overlap="circular"
-  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-  variant="dot"
+                     overlap="circular"
+                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                   variant="dot"
 >
                       <Avatar sx={{ ...gradientAvatar }}>
                         {" "}
