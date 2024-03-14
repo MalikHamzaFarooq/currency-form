@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import SmallScreen from "./Components/Tablep2p/SmallScreen";
 import CartComponent from "./Components/Tablep2p/CartComponent";
 
+import PersistentDrawerLeft from "./Kabnet/PersistentDrawerLeft";
+import KanbanApp from "./Kabnet/KanbanApp";
+import BuyCoinSection from './Components/Tablep2p/BuyCoinSection';
+import SliderComponent from './Components/Tablep2p/SliderComponent';
+
+
 function App() {
   const [windowWidth, setWindowWidth] =useState(window.innerWidth);
   
@@ -20,8 +26,11 @@ function App() {
   return (
     <div className="App">
       {/* <Navbar/> */}
-   
+   {/* <KanbanApp/> */}
+   {/* <PersistentDrawerLeft/> */}
+   <SliderComponent/>
       {windowWidth <= 769 ? <SmallScreen /> :  <CartComponent/> }
+   <BuyCoinSection/>
     </div>
   );
 }

@@ -121,7 +121,6 @@
       transition: transform 0.3s ease-in-out;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
-  
     .menu a {
       margin-left: 12px;
     }
@@ -139,3 +138,21 @@
     }
   }
   
+  .lineImg{
+    width: 200px;
+    height: 10px;
+    margin-top: 80%;
+    margin-left: 50%;
+}
+  
+
+    @media screen and (max-width: 768px) {
+      .coinImg {
+        width: 100%;
+      }
+    }
+    @media screen and (min-width: 769px) {
+      .coinImg {
+        width: 100px;
+      }
+    }

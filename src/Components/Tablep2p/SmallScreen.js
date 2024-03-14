@@ -34,7 +34,7 @@ import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Badge from '@mui/material/Badge';
-
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -298,7 +298,7 @@ export default function SmallScreen() {
                     <EditIcon /> USDT
                   </MenuItem>
                   <MenuItem value={2}>
-                    <EditIcon /> BTC{" "}
+                    <CurrencyBitcoinIcon /> BTC{" "}
                   </MenuItem>
                   <MenuItem value={3}>
                     <EditIcon /> ETH{" "}

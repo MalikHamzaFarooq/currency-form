@@ -6,7 +6,7 @@ import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import './Tablep2p.css'
 // import { useContext } from "react";
 import {
@@ -27,13 +27,11 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import EditIcon from "@mui/icons-material/Edit";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Badge from '@mui/material/Badge';
-import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -191,9 +189,9 @@ export default function CartComponent() {
 
   // Buy sell button
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
+  // const handleChange = () => {
+    // setChecked((prev) => !prev);
+  // };
 
   const GradientButton = styled(Button)({
     background: `linear-gradient(90deg, ${gradientColors[0]}, ${gradientColors[1]})`,
@@ -212,11 +210,11 @@ export default function CartComponent() {
   // const { cartDAta, setCArtData, setNotification } = useContext(AppContext);
   // const state = useContext(AppContext);
 
-  const handleDelete = (itemId) => {
+  // const handleDelete = (itemId) => {
     // const newCart = cartDAta.filter((item) => item._id !== itemId);
     // setCArtData(newCart);
     // setNotification((prev) => prev - 1);
-  };
+  // };
 
   // const totalSum = cartDAta.reduce(
   //   (acc, item) => acc + item.quantity * item.price,
@@ -226,8 +224,8 @@ export default function CartComponent() {
   // console.log("Total Price:", totalSum);
   console.log("data ..... ", cartDAta);
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700, mt: "5%" }} aria-label="customized table">
+    <TableContainer >
+      <Table sx={{  mt: "5%" }} aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>
@@ -238,8 +236,7 @@ export default function CartComponent() {
                 }}
               >
                 <Button
-                  variant="contained"
-                  color="primary"
+                  variant="contained"      
                   disabled={checked}
                   onClick={() => setChecked(!checked)}
                   style={{
@@ -255,7 +252,7 @@ export default function CartComponent() {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
+                
                   disabled={!checked}
                   onClick={() => setChecked(!checked)}
                   style={{
@@ -757,24 +754,28 @@ export default function CartComponent() {
           {cartDAta.length === 0 ? (
             <h1 style={{ textAlign: "center" }}> Product Not Found </h1>
           ) : (
+            <>
             <StyledTableRow>
-              <StyledTableCell colSpan={3} />
+              {/* <StyledTableCell colSpan={3} />
               <StyledTableCell
                 colSpan={2}
                 sx={{ backgroundColor: "#1976d2", color: "white" }}
               >
-                {/* <b>Subtotal: </b> */}
+                <b>Subtotal: </b>
               </StyledTableCell>
               <StyledTableCell
                 align="right"
                 sx={{ backgroundColor: "#1976d2", color: "white" }}
               >
-                {/* <b>{totalSum}$ </b> */}
-              </StyledTableCell>
+                <b>{totalSum}$ </b>
+              </StyledTableCell> */}
             </StyledTableRow>
+            
+            </>
           )}
         </TableBody>
       </Table>
+      
     </TableContainer>
   );
 }
