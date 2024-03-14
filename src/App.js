@@ -5,7 +5,7 @@ import CartComponent from "./Components/Tablep2p/CartComponent";
 import PersistentDrawerLeft from "./Kabnet/PersistentDrawerLeft";
 import KanbanApp from "./Kabnet/KanbanApp";
 import BuyCoinSection from './Components/Tablep2p/BuyCoinSection';
-import SliderComponent from './Components/Tablep2p/SliderComponent';
+import SimpleSlider from './Components/Tablep2p/SimpleSlider';
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       {/* <Navbar/> */}
    {/* <KanbanApp/> */}
    {/* <PersistentDrawerLeft/> */}
-   <SliderComponent/>
+   <SimpleSlider/>
       {windowWidth <= 769 ? <SmallScreen /> :  <CartComponent/> }
    <BuyCoinSection/>
     </div>

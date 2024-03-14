@@ -51,7 +51,7 @@ function FAQSection() {
         sx={{
           textAlign: "start",
           fontSize: "48px",
-          fontweight: "700",
+          fontweight: "900",
           lineHeight: "56px",
           paddingBottom: "40px",
           paddingLeft:'0%'

@@ -8,7 +8,6 @@ import SelectCoin from '../../assets/download.png';
 import CompleteCoin from '../../assets/download 2.png';
 import ReceiveCoin from '../../assets/download 3.png';
 import Line from '../../assets/line.png';
-
 import "./Tablep2p.css";
 import FAQSection from "./FAQSection";
 
@@ -95,15 +94,19 @@ function BuyCoinSection() {
           <Grid item xs={12} md={4} key={step.title}>
             <Grid container spacing={2} sx={{display:{ md:'block'}}}>
 
-            <Grid item xs={2} sx={{display:'flex'}}>
+            <Grid item xs={3} sx={{display:'flex'}}>
 
             <img src= {step.img} alt="" srcset="" className="coinImg"/>
+
+            <Box sx={{display:{xs:'none',sm:'none',md:'none',lg:'contents'}}}>
+
             <img src= {step.lineImg} alt="" srcset=""  className="lineImg"/>
+            </Box>
 
             </Grid>
             
           
-            <Grid item xs={10} 
+            <Grid item xs={9} 
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -111,10 +114,11 @@ function BuyCoinSection() {
                
               }}
             >
-              <Typography variant="h5">{step.title}</Typography>
+              <span className="stepTitle">{step.title}</span>
               <Typography
                 variant="body1"
-                sx={{ textAlign: "start", margin: "10px 0" }}
+                
+                sx={{ textAlign: "start", margin: "10px 0",color:'#adb1b8' }}
               >
                 {step.description}
               </Typography>
