@@ -39,7 +39,7 @@ function BuyCoinSection() {
   const [checked, setChecked] = React.useState(true);
 
   return (
-    <Container>
+    <Container sx={{mt:'15%'}}>
 
     
     <Box sx={{ width: "100%",  margin: "auto" }}>

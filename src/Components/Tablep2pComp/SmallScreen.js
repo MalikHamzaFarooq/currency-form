@@ -264,7 +264,7 @@ export default function SmallScreen() {
                 </Button>
               </Box>
     <input type="checkbox" id="menu-toggle"></input>
-    <label for="menu-toggle" class="menu-icon">View more ></label>
+    <label for="menu-toggle" class="menu-icon"> <b>View more ></b> </label>
     <ul class="menu">
       <li><a href="#">
       <StyledTableCell>
@@ -600,7 +600,7 @@ export default function SmallScreen() {
           {cartDAta.map((item) => ( 
 <>
 
-              <Grid item sx={{ display: "flex" }} xs={12} sm={12} md={12}>
+              <Grid item sx={{ display: "flex", borderBottom: '1px solid rgb(243, 245, 247)',paddingBottom:'2%' }} xs={12} sm={12} md={12}>
 
 
                 <Grid item sm={6} md={6} sx={{ display: "flex",flexDirection: "column"}}>
@@ -751,32 +751,36 @@ export default function SmallScreen() {
                       </b>
                     </Button>
                 </Grid>
-                
-              <Divider/>
+             
               </Grid>
+
               </>
           ))}
         </Grid>
 
           {cartDAta.length === 0 ? (
             <h1 style={{ textAlign: "center" }}> Product Not Found </h1>
-          ) : (
-            <StyledTableRow>
-              <StyledTableCell colSpan={3} />
-              <StyledTableCell
-                colSpan={2}
-                sx={{ backgroundColor: "#1976d2", color: "white" }}
-              >
-                {/* <b>Subtotal: </b> */}
-              </StyledTableCell>
-              <StyledTableCell
-                align="right"
-                sx={{ backgroundColor: "#1976d2", color: "white" }}
-              >
-                {/* <b>{totalSum}$ </b> */}
-              </StyledTableCell>
-            </StyledTableRow>
-          )}
+          ) : 
+          (
+            <>
+            </>
+            // <StyledTableRow>
+            //   <StyledTableCell colSpan={3} />
+            //   <StyledTableCell
+            //     colSpan={2}
+            //     sx={{ backgroundColor: "#1976d2", color: "white" }}
+            //   >
+            //     {/* <b>Subtotal: </b> */}
+            //   </StyledTableCell>
+            //   <StyledTableCell
+            //     align="right"
+            //     sx={{ backgroundColor: "#1976d2", color: "white" }}
+            //   >
+            //     {/* <b>{totalSum}$ </b> */}
+            //   </StyledTableCell>
+            // </StyledTableRow>
+          )
+          }
 
         </Box>
         

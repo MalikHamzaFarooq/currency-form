@@ -2,7 +2,8 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-
+import { Button } from "@mui/material";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const faqData = [
   {
@@ -78,12 +79,18 @@ function FAQSection() {
           </Grid>
         ))}
       </Grid>
-      <Typography variant="body2" sx={{ textAlign: "start", margin: "20px 0","&:hover": {
+      {/* <Typography variant="body2"   sx={{ textAlign: "start", margin: "20px 0",color:'black', "&:hover": {
                   color: "#eb8d13",
                   cursor: "pointer",
                 }, }}>
         View More →
-      </Typography>
+      </Typography> */}
+      <Button variant="text" sx={{ textAlign: "start", margin: "20px 0",color:'black', "&:hover": {
+                  color: "#eb8d13",
+                  cursor: "pointer",
+                }, }} endIcon={<ArrowRightAltIcon />}>
+      View More 
+      </Button>
     </Box>
   );
 }

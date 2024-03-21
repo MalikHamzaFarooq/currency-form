@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import SmallScreen from "./Components/Tablep2p/SmallScreen";
-import CartComponent from "./Components/Tablep2p/CartComponent";
-
-import PersistentDrawerLeft from "./Kabnet/PersistentDrawerLeft";
-import KanbanApp from "./Kabnet/KanbanApp";
-import BuyCoinSection from './Components/Tablep2p/BuyCoinSection';
-import SimpleSlider from './Components/Tablep2p/SimpleSlider';
+import SmallScreen from "./Components/Tablep2pComp/SmallScreen";
+import CartComponent from "./Components/Tablep2pComp/CartComponent";
+import BuyCoinSection from './Components/Tablep2pComp/BuyCoinSection';
+import SimpleSlider from './Components/Tablep2pComp/SimpleSlider';
 
 
 function App() {
