@@ -1,32 +1,170 @@
-import React from 'react';
-import './Chart.css';
+import React from "react";
+import "./Chart.css";
 
-function Cell({ isWall }) {
+export default function Chart() {
   return (
-    <div className={`cell ${isWall ? 'wall' : ''}`}>
-    </div>
-  );
-}
+    <div>
+      Chart
+      <div id="wrapper">
+        <div id="container">
+          <ol class="organizational-chart">
+            <li>
+              <div>
+                <h1>Title</h1>
+              </div>
 
-function Chart() {
-  const mazeData = [
-    [false, true, false, false],
-    [false, false, true, false],
-    [false, true, false, false],
-    [true, false, false, true],
-  ];
-
-  return (
-    <div className="container">
-      {mazeData.map((row, rowIndex) => (
-        <div key={rowIndex} className="row">
-          {row.map((cellValue, cellIndex) => (
-            <Cell key={`${rowIndex}-${cellIndex}`} isWall={cellValue} />
-          ))}
+              <ol>
+                <li>
+                  <div>
+                    <h2>Secondary</h2>
+                  </div>
+                  <ol>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                      <ol>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                          <ol>
+                            <li>
+                              <div>
+                                <h5>Quinary</h5>
+                              </div>
+                            </li>
+                            <li>
+                              <div>
+                                <h5>Quinary</h5>
+                              </div>
+                              <ol>
+                                <li>
+                                  <div>
+                                    <h6>Senary</h6>
+                                  </div>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                        </li>
+                      </ol>
+                    </li>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <div>
+                    <h2>Secondary</h2>
+                  </div>
+                  <ol>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                      <ol>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <div>
+                    <h2>Secondary</h2>
+                  </div>
+                  <ol>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                      <ol>
+                        <li>
+                          <div>
+                            <h4>Quaternary</h4>
+                          </div>
+                          <ol>
+                            <li>
+                              <div>
+                                <h5>Quinary</h5>
+                              </div>
+                              <ol>
+                                <li>
+                                  <div>
+                                    <h6>Senary</h6>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div>
+                                    <h6>Senary</h6>
+                                  </div>
+                                </li>
+                              </ol>
+                            </li>
+                            <li>
+                              <div>
+                                <h5>Quinary</h5>
+                              </div>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <h3>Tertiary</h3>
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+                
+              </ol>
+            </li>
+          </ol>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
-
-export default Chart;

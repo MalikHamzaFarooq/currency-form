@@ -42,7 +42,7 @@ function BuyCoinSection() {
     <Container sx={{mt:'15%'}}>
 
     
-    <Box sx={{ width: "100%",  margin: "auto" }}>
+    <Box sx={{ width: "100%",  margin: "auto",position:'relative' }}>
       <Typography variant="h4" sx={{ textAlign: "start", margin: "20px 0",fontSize:'48px',fontWeight:700 }}>
         Complete P2P trades in three steps, and  {checked ? "buy " : "sell "} coins with zero fees!
       </Typography>
