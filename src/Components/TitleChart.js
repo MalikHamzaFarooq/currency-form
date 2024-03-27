@@ -1,8 +1,15 @@
-import { Box, Grid } from '@mui/material';
 import React from 'react';
 import "./Chart.css";
-
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import { Paper } from '@mui/material';
 const TitleChart = () => {
  
 
@@ -10,25 +17,43 @@ const TitleChart = () => {
     <>
   
 
- <div style={{position:'relative',margin:'20rem 0'}}>
+ <div style={{position:'relative',margin:'12rem 0'}}>
 
 <div className='chart' style={{position:'relative',height:'100vh',width:'100vw'}}>
 
 <div className='top'>
 <div id='box51'>
-      <h2>Box51
-      </h2>
+  <Paper   sx={{bgcolor: '#009688'}}>
+
+<ListItem alignItems="flex-start" sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+          <Avatar >  <ImageIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Brunch"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                Ali Connors
+              </Typography> */}
+           
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+  </Paper>
     </div>
     <div id='box52'  >
-      <h2>
-     Box52
-      </h2>
+    
 
     </div>
     <div id='box53'>
-      <h2>
-      Box53
-      </h2>
+     
 
     </div>
 
@@ -42,21 +67,87 @@ const TitleChart = () => {
 
 <div className='middle'>
 <div id='box4'>
-      <h2>Box4
-      </h2>
+<Paper  sx={{bgcolor: '#009688'}}>
+    
+<ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <WorkIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Brunch "
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                Ali Connors
+              </Typography> */}
+       
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
 
     <div id='box5'>
-      <h2>Box5
-      </h2>
+    <Paper  sx={{bgcolor: '#009688'}}>
+    
+    <ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <BeachAccessIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Oui"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                Sandra Adams
+              </Typography> */}
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
     </div>
 
    
 
-    <div id='box6'>
-      <h2>Box6
-      </h2>
+    <div  id='box6'>
+    <Paper  sx={{bgcolor: '#009688',}}>
+    
+    <ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <BeachAccessIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Summer"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                to Scott, Alex, 
+
+              </Typography> */}
+      
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
 
@@ -64,62 +155,145 @@ const TitleChart = () => {
 
 <div >
 
+<div id='box31'  >
+   
+
+    </div>
+
 <div id='box1'  >
-      <h2>
-     Box1
-      </h2>
+   
 
     </div>
     <div id='box2'>
-      <h2>
-      Box2
-      </h2>
+     
 
     </div>
 
 
 
     
-    <div id='box3'>
-      <h2>Box3
-      </h2>
+    <div  id='box3'>
+    <Paper  sx={{bgcolor: '#009688'}}>
+    
+    <ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <BeachAccessIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Summer"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                to Scott, Alex, 
+              </Typography>
+       */}
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
 </div>
 <div className='end'>
-<div id='box10'>
-      <h2>Box10
-      </h2>
+<div id='box10' class="MuiPaper-root">
+<Paper  sx={{bgcolor: '#009688'}}>
+    
+<ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <BeachAccessIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Summer"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                to Scott, Alex, 
+              </Typography> */}
+             
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
     <div id='box11'>
-      <h2>Box11
-      </h2>
+    <Paper  sx={{bgcolor: '#009688'}}>
+    
+    <ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <WorkIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Brunch"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                Ali Connors
+              </Typography> */}
+           
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
-    <div id='box12'>
-      <h2>Box12
-      </h2>
+    <div  id='box12'>
+    <Paper  sx={{bgcolor: '#009688'}}>
+    
+    <ListItem alignItems="flex-start"  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <ListItemAvatar>
+        <Avatar >  <WorkIcon /> </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="Brunch"
+          secondary={
+            <React.Fragment>
+              {/* <Typography
+                sx={{ display: 'inline' }}
+                component="span"
+                variant="body2"
+                color="text.primary"
+              >
+                Ali Connors
+              </Typography> */}
+         
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+    </Paper>
 
     </div>
     <div id='box21'  >
-      <h2>
-     Box21
-      </h2>
+     
 
     </div>
     
     <div id='box22'  >
-      <h2>
-     Box22
-      </h2>
+     
 
     </div>
 
     <div id='box23'  >
-      <h2>
-     Box23
-      </h2>
+    
 
     </div>
 
